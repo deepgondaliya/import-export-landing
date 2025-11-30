@@ -1,0 +1,61 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { ArrowRight, MessageSquare } from "lucide-react";
+import Image from "next/image";
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src="/hero-logistics.jpg"
+        alt="Global shipping and logistics"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Gradient Overlay - Matches Lovable */}
+      <div className="absolute inset-0 bg-linear-to-r from-gray-900/95 via-gray-700/80 to-red-500/60" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Global Import & Export
+            <br />
+            <span className="text-red-500">Solutions</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
+            We help companies expand internationally with reliable sourcing, logistics & customs support.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button size="lg" className="bg-red-500 hover:bg-red-600/90 text-white group">
+              Start Your Shipment
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
+            >
+              <MessageSquare className="mr-2 h-5 w-5" />
+              Talk to Expert
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-3 bg-white/50 rounded-full" />
+        </div>
+      </div>
+    </section>
+  );
+}
