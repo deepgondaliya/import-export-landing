@@ -20,7 +20,7 @@ export default function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-10">
-            {["Services", "Process", "Countries", "About", "Contact"].map((item) => (
+            {["Services", "Products", "Process", "Countries", "About", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
