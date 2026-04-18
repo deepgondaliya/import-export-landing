@@ -23,18 +23,18 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Global Import & Export
+            Global Export & Import
             <br />
             <span className="text-red-500">Solutions</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
-            We help companies expand internationally with reliable sourcing, logistics & customs support.
+            Major supply in bulk quantity and wholesale of organic and other products with certication and trusted quality.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="bg-red-500 hover:bg-red-600/90 text-white group">
-              Start Your Shipment
+              Get a Quote Today
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 

@@ -61,10 +61,6 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-6 text-white">Our Services</h3>
             <ul className="space-y-4 text-gray-400">
               <li>Import & Export Management</li>
-              <li>Global Sourcing</li>
-              <li>Freight Forwarding</li>
-              <li>Customs Clearance</li>
-              <li>Warehousing & Distribution</li>
               <li>Trade Documentation</li>
             </ul>
           </div>
@@ -79,11 +75,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-red-500" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 (999) 802-3639</span>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-red-500" />
-                <span>contact@globaltrade.com</span>
+                <span>swastikinternationalexim@gmail.com</span>
               </div>
             </div>
           </div>

@@ -3,16 +3,16 @@ import { Globe } from "lucide-react";
 
 export default function Countries() {
   const countries = [
-    { name: "United States", flag: "US" },
-    { name: "UAE", flag: "UAE" },
-    { name: "China", flag: "CN" },
-    { name: "United Kingdom", flag: "UK" },
-    { name: "Germany", flag: "DE" },
-    { name: "Singapore", flag: "SG" },
-    { name: "Australia", flag: "AU" },
-    { name: "Canada", flag: "CA" },
-    { name: "India", flag: "IN" },
-    { name: "Saudi Arabia", flag: "SA" },
+    { name: "United States", code: "us" },
+    { name: "UAE", code: "ae" },
+    { name: "China", code: "cn" },
+    { name: "United Kingdom", code: "gb" },
+    { name: "Germany", code: "de" },
+    { name: "Singapore", code: "sg" },
+    { name: "Australia", code: "au" },
+    { name: "Canada", code: "ca" },
+    { name: "India", code: "in" },
+    { name: "Saudi Arabia", code: "sa" },
   ];
 
   return (
@@ -32,18 +32,29 @@ export default function Countries() {
         </div>
 
         {/* Countries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {countries.map((country, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center justify-center p-8 bg-card rounded-2xl border border-gray-300 hover:border-red-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-red-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 aspect-4/3"
             >
-              <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {country.flag}
+              {/* Flag Image — full card background */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://flagcdn.com/w320/${country.code}.png`}
+                alt={`${country.name} flag`}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+
+              {/* Text overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                <h3 className="text-xs font-bold text-white tracking-wide leading-tight">
+                  {country.name}
+                </h3>
               </div>
-              <h3 className="text-sm font-bold text-gray-600 tracking-wide">
-                {country.name}
-              </h3>
             </div>
           ))}
         </div>

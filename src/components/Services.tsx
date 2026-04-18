@@ -1,14 +1,5 @@
 // src/components/Services.tsx
-import {
-  ArrowDownUp,
-  ArrowUpRight,
-  Search,
-  Plane,
-  FileCheck,
-  Warehouse,
-  FileText,
-  Network,
-} from "lucide-react";
+import { ArrowDownUp, ArrowUpRight, FileText } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -23,34 +14,9 @@ export default function Services() {
       description: "Expand your reach globally with our comprehensive export management.",
     },
     {
-      icon: Search,
-      title: "Global Sourcing",
-      description: "Find verified suppliers worldwide and negotiate the best prices.",
-    },
-    {
-      icon: Plane,
-      title: "Freight Forwarding",
-      description: "Air and sea freight solutions tailored to your business needs.",
-    },
-    {
-      icon: FileCheck,
-      title: "Customs Clearance",
-      description: "Expert handling of all customs documentation and compliance.",
-    },
-    {
-      icon: Warehouse,
-      title: "Warehousing",
-      description: "Secure storage facilities at strategic global locations.",
-    },
-    {
       icon: FileText,
       title: "Documentation Support",
       description: "Complete assistance with bills, certificates, and trade documents.",
-    },
-    {
-      icon: Network,
-      title: "Supply Chain Management",
-      description: "Optimize your entire supply chain for maximum efficiency.",
     },
   ];
 
@@ -68,7 +34,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

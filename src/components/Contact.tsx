@@ -62,7 +62,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Email Us</h4>
-                  <p className="text-gray-600">contact@globaltrade.com</p>
+                  <p className="text-gray-600">swastikinternationalexim@gmail.com</p>
                 </div>
               </div>
 
@@ -72,7 +72,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Call Us</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+91 (999) 802-3639</p>
                 </div>
               </div>
 
@@ -127,9 +127,7 @@ export default function Contact() {
                   <SelectContent>
                     <SelectItem value="import">Import Services</SelectItem>
                     <SelectItem value="export">Export Services</SelectItem>
-                    <SelectItem value="sourcing">Global Sourcing</SelectItem>
-                    <SelectItem value="freight">Freight Forwarding</SelectItem>
-                    <SelectItem value="customs">Customs Clearance</SelectItem>
+                    <SelectItem value="documentation">Documentation Support</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>

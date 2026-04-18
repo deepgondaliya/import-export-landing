@@ -1,5 +1,5 @@
 // src/components/WhyChooseUs.tsx
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Handshake, FileCheck2, Timer } from "lucide-react";
 
 export default function WhyChooseUs() {
   const benefits = [
@@ -11,11 +11,27 @@ export default function WhyChooseUs() {
     "24/7 Customer Support",
   ];
 
-  const stats = [
-    { value: "250+", label: "Global Clients", color: "bg-gray-700 text-white" },
-    { value: "50+", label: "Countries", color: "bg-gray-700 text-white" },
-    { value: "15+", label: "Years Experience", color: "bg-gray-700 text-white" },
-    { value: "10k+", label: "Shipments", color: "bg-gray-700 text-white" },
+  const trustCards = [
+    {
+      icon: ShieldCheck,
+      title: "Certified Quality",
+      description: "Every product is NPOP & APEDA certified — meeting international standards before it leaves our hands.",
+    },
+    {
+      icon: Handshake,
+      title: "Long-term Partnerships",
+      description: "We build lasting relationships with buyers and suppliers built on transparency and mutual growth.",
+    },
+    {
+      icon: FileCheck2,
+      title: "Transparent Process",
+      description: "Clear documentation, honest pricing, and full compliance at every step of the shipment.",
+    },
+    {
+      icon: Timer,
+      title: "Reliable Delivery",
+      description: "On-time, compliant shipments with real-time updates so you always know where your order stands.",
+    },
   ];
 
   return (
@@ -43,17 +59,23 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right: Stats Grid */}
-          <div className="grid grid-cols-2 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`${stat.color} p-10 rounded-2xl text-left shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300`}
-              >
-                <div className="text-5xl md:text-4xl font-bold mb-3">{stat.value}</div>
-                <div className="text-xl font-medium opacity-90">{stat.label}</div>
-              </div>
-            ))}
+          {/* Right: Trust Cards Grid */}
+          <div className="grid grid-cols-2 gap-6">
+            {trustCards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={index}
+                  className="group p-6 bg-white rounded-2xl border border-black hover:border-red-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-500 transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-red-500 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-bold text-black text-base mb-2">{card.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{card.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

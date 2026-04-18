@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Leaf, Star, PawPrint, Package, Ship, FileText, BadgeCheck, MapPin } from "lucide-react";
+import { Leaf, Star, PawPrint, Package, Ship, BadgeCheck, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -75,10 +74,6 @@ const grades = [
 ];
 
 export default function Products() {
-  const [activeGrade, setActiveGrade] = useState(0);
-  const grade = grades[activeGrade];
-  const Icon = grade.icon;
-
   return (
     <section id="products" className="py-24 bg-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,7 +89,7 @@ export default function Products() {
         </div>
 
         {/* Product Overview Card */}
-        <div className="bg-white rounded-2xl border border-black overflow-hidden mb-10 shadow-sm">
+        <div className="bg-white rounded-2xl border border-black overflow-hidden mb-12 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2">
 
             {/* Image Area */}
@@ -105,7 +100,6 @@ export default function Products() {
                 fill
                 className="object-cover"
               />
-              {/* Origin Badge */}
               <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/80 text-white text-xs px-3 py-2 rounded-full">
                 <MapPin className="w-3 h-3 text-red-500" />
                 Gujarat, India — Kutch & Ahmedabad Districts
@@ -129,7 +123,6 @@ export default function Products() {
                 </p>
               </div>
 
-              {/* Certification Badges */}
               <div className="flex flex-wrap gap-2">
                 {[
                   { label: "NPOP Certified", highlight: true },
@@ -150,7 +143,6 @@ export default function Products() {
                 ))}
               </div>
 
-              {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4 pt-2 border-t border-gray-100">
                 {[
                   { value: "3", label: "Export Grades" },
@@ -167,160 +159,100 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Grade Tabs */}
-        <div className="flex gap-3 mb-6 flex-wrap">
-          {grades.map((g, i) => {
-            const GIcon = g.icon;
+        {/* Grade Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {grades.map((grade) => {
+            const Icon = grade.icon;
             return (
-              <button
-                key={g.id}
-                onClick={() => setActiveGrade(i)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 border ${
-                  activeGrade === i
-                    ? "bg-red-500 text-white border-red-500 shadow-lg"
-                    : "bg-white text-black border-black hover:border-red-500 hover:text-red-500"
-                }`}
+              <div
+                key={grade.id}
+                className="bg-white rounded-2xl border border-black overflow-hidden flex flex-col hover:border-red-500 hover:shadow-2xl transition-all duration-300"
               >
-                <GIcon className="w-4 h-4" />
-                {g.label}
-              </button>
-            );
-          })}
-        </div>
+                {/* Grade Image */}
+                <div className="relative h-48">
+                  <Image
+                    src={grade.image}
+                    alt={`Pearl Millet — ${grade.label}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-        {/* Grade Detail Panel */}
-        <div className="bg-white rounded-2xl border border-black overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-3">
-
-            {/* Left: Image + Grade Info */}
-            <div className="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-gray-100">
-              {/* Grade Image */}
-              <div className="relative min-h-[200px]">
-                <Image
-                  src={grade.image}
-                  alt={`Pearl Millet — ${grade.label}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
+                {/* Grade Header */}
+                <div className="p-5 border-b border-gray-100 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
-                    <div className="font-bold text-black text-sm">{grade.label}</div>
+                    <div className="font-bold text-black">{grade.label}</div>
                     <span className="text-xs font-semibold text-red-500 bg-red-50 px-2 py-0.5 rounded-full">
                       {grade.badge}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-600 leading-relaxed">{grade.description}</p>
-
-                {/* Certifications */}
-                <div className="space-y-2">
-                  <div className="text-xs font-bold uppercase tracking-wider text-gray-400">Certifications</div>
-                  {grade.certs.map((cert) => (
-                    <div key={cert} className="flex items-center gap-2 text-sm text-black">
-                      <BadgeCheck className="w-4 h-4 text-red-500 flex-shrink-0" />
-                      {cert}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Specs + Logistics */}
-            <div className="lg:col-span-2 p-6 lg:p-8 space-y-8">
-
-              {/* Specs Table */}
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">
-                  Quality Specifications
-                </h4>
-                <div className="rounded-xl overflow-hidden border border-gray-100">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-black text-white">
-                        <th className="text-left px-4 py-3 font-semibold">Parameter</th>
-                        <th className="text-left px-4 py-3 font-semibold">Specification</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {grade.specs.map((row, i) => (
-                        <tr key={row.param} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                          <td className="px-4 py-3 text-gray-500 font-medium">{row.param}</td>
-                          <td className="px-4 py-3">
-                            <span className="font-bold text-black">{row.value}</span>
-                            {row.note && (
-                              <span className="text-gray-400 text-xs ml-2">({row.note})</span>
-                            )}
-                          </td>
+                {/* Specs Table */}
+                <div className="p-5 flex-1 space-y-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    Quality Specifications
+                  </div>
+                  <div className="rounded-xl overflow-hidden border border-gray-100">
+                    <table className="w-full text-xs">
+                      <thead>
+                        <tr className="bg-black text-white">
+                          <th className="text-left px-3 py-2 font-semibold">Parameter</th>
+                          <th className="text-left px-3 py-2 font-semibold">Value</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                      </thead>
+                      <tbody>
+                        {grade.specs.map((row, i) => (
+                          <tr key={row.param} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                            <td className="px-3 py-2 text-gray-500">{row.param}</td>
+                            <td className="px-3 py-2 font-semibold text-black">{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
 
-              {/* Packaging + Logistics */}
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">
-                  Packaging & Logistics
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl border border-gray-100 bg-gray-50">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Package className="w-4 h-4 text-red-500" />
-                      <span className="text-xs font-bold uppercase text-gray-500">Packaging</span>
+                  {/* Packaging */}
+                  <div className="space-y-2 pt-1">
+                    <div className="flex items-center gap-2">
+                      <Package className="w-3.5 h-3.5 text-red-500" />
+                      <span className="text-xs text-gray-500 font-semibold">{grade.packaging}</span>
                     </div>
-                    <p className="text-sm font-semibold text-black">{grade.packaging}</p>
+                    <div className="flex items-center gap-2">
+                      <Ship className="w-3.5 h-3.5 text-red-500" />
+                      <span className="text-xs text-gray-500 font-semibold">{grade.container} · {grade.hsCode}</span>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-xl border border-gray-100 bg-gray-50">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Ship className="w-4 h-4 text-red-500" />
-                      <span className="text-xs font-bold uppercase text-gray-500">Container</span>
-                    </div>
-                    <p className="text-sm font-semibold text-black">{grade.container}</p>
-                    <p className="text-xs text-gray-400 mt-1">{grade.hsCode}</p>
-                  </div>
-                  <div className="p-4 rounded-xl border border-gray-100 bg-gray-50">
-                    <div className="flex items-center gap-2 mb-2">
-                      <FileText className="w-4 h-4 text-red-500" />
-                      <span className="text-xs font-bold uppercase text-gray-500">Key Documents</span>
-                    </div>
-                    <ul className="space-y-1">
-                      {grade.docs.map((doc) => (
-                        <li key={doc} className="text-xs text-black font-medium">• {doc}</li>
-                      ))}
-                    </ul>
+
+                  {/* Certifications */}
+                  <div className="space-y-1.5">
+                    {grade.certs.map((cert) => (
+                      <div key={cert} className="flex items-center gap-2 text-xs text-black">
+                        <BadgeCheck className="w-3.5 h-3.5 text-red-500 shrink-0" />
+                        {cert}
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
 
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2 border-t border-gray-100">
-                <Button
-                  size="lg"
-                  className="bg-red-500 hover:bg-red-600 text-white flex-1 sm:flex-none"
-                  onClick={() => {
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Request a Quote
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-white flex-1 sm:flex-none"
-                >
-                  Download Spec Sheet
-                </Button>
+                {/* CTA */}
+                <div className="p-5 border-t border-gray-100">
+                  <Button
+                    size="sm"
+                    className="w-full bg-red-500 hover:bg-red-600 text-white"
+                    onClick={() => {
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Request a Quote
+                  </Button>
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
       </div>
