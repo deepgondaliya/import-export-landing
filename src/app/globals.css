@@ -21,6 +21,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset anchor scroll for fixed header (~88px height + spacing) */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 /* Base styles */
 body {
   margin: 0;

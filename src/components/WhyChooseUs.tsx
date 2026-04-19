@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right: Trust Cards Grid */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {trustCards.map((card, index) => {
               const Icon = card.icon;
               return (

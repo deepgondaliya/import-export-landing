@@ -196,8 +196,8 @@ export default function Products() {
                   <div className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
                     Quality Specifications
                   </div>
-                  <div className="rounded-xl overflow-hidden border border-gray-100">
-                    <table className="w-full text-xs">
+                  <div className="rounded-xl overflow-x-auto border border-gray-100">
+                    <table className="w-full text-xs min-w-[260px]">
                       <thead>
                         <tr className="bg-blue-900 text-white">
                           <th className="text-left px-3 py-2 font-semibold">Parameter</th>

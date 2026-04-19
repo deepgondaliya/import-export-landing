@@ -47,7 +47,7 @@ export default function Process() {
           <div className="hidden lg:block absolute left-0 right-0 top-25 h-2 bg-gray-200/70 -z-10"
                style={{ width: '90%', margin: '0 auto', left: '5%', right: '5%' }} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
