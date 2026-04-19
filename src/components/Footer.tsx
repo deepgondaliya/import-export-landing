@@ -64,8 +64,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6 text-white">Our Services</h3>
             <ul className="space-y-4 text-gray-400">
-              <li>Import & Export Management</li>
-              <li>Trade Documentation</li>
+              <li>Major Distributors in Food Product</li>
+              <li>Premium Service Provider</li>
             </ul>
           </div>
 
@@ -79,7 +79,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-orange-500" />
-                <span>+91 (999) 802-3639</span>
+                <span>(+91) 9998023639</span>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-orange-500" />

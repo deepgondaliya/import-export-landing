@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import Products from "@/components/Products";
-import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <Services />
       <Products />
       <Process />
       <Countries />

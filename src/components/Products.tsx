@@ -46,7 +46,6 @@ const grades = [
     certs: ["APEDA RCMC", "Phytosanitary Certificate", "Certificate of Origin"],
     packaging: "25 kg or 50 kg PP woven bags",
     container: "22 – 26 MT per 20ft FCL",
-    hsCode: "HS Code: 10082920",
     docs: ["APEDA RCMC", "Phytosanitary Certificate", "Certificate of Origin"],
   },
   {
@@ -68,7 +67,6 @@ const grades = [
     certs: ["Phytosanitary Certificate", "Certificate of Analysis (COA)"],
     packaging: "25 kg / 40 kg / 50 kg PP woven bags",
     container: "24 MT per 20ft FCL",
-    hsCode: "HS Code: 100829 / 230990",
     docs: ["Phytosanitary Certificate", "Certificate of Analysis (COA)"],
   },
 ];
@@ -143,15 +141,15 @@ export default function Products() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pt-2 border-t border-gray-100">
+              <div className="flex divide-x divide-gray-200 pt-3 border-t border-gray-100">
                 {[
-                  { value: "3", label: "Export Grades" },
+                  { value: "3 Categories", label: "Export Grades" },
                   { value: "99.5%", label: "Max Purity" },
                   { value: "26 MT", label: "Per FCL" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-bold text-orange-500">{stat.value}</div>
-                    <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                  <div key={stat.label} className="flex-1 text-center px-2">
+                    <div className="text-sm font-bold text-orange-500 leading-snug">{stat.value}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -166,26 +164,25 @@ export default function Products() {
             return (
               <div
                 key={grade.id}
-                className="bg-white rounded-2xl border border-black overflow-hidden flex flex-col hover:border-orange-500 hover:shadow-2xl transition-all duration-300"
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
-                {/* Grade Image */}
-                <div className="relative h-48">
+                {/* Image with gradient overlay + label */}
+                <div className="relative h-52 overflow-hidden">
                   <Image
                     src={grade.image}
                     alt={`Pearl Millet — ${grade.label}`}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
-
-                {/* Grade Header */}
-                <div className="p-5 border-b border-gray-100 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-orange-500" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-black">{grade.label}</div>
-                    <span className="text-xs font-semibold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-white" />
+                      </div>
+                      <h3 className="font-bold text-white text-base leading-tight">{grade.label}</h3>
+                    </div>
+                    <span className="text-xs font-semibold text-orange-300 bg-white/10 border border-orange-400/40 px-2.5 py-1 rounded-full backdrop-blur-sm">
                       {grade.badge}
                     </span>
                   </div>
@@ -193,7 +190,7 @@ export default function Products() {
 
                 {/* Specs Table */}
                 <div className="p-5 flex-1 space-y-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-gray-400">
                     Quality Specifications
                   </div>
                   <div className="rounded-xl overflow-x-auto border border-gray-100">
@@ -215,37 +212,40 @@ export default function Products() {
                     </table>
                   </div>
 
-                  {/* Packaging */}
-                  <div className="space-y-2 pt-1">
-                    <div className="flex items-center gap-2">
-                      <Package className="w-3.5 h-3.5 text-orange-500" />
-                      <span className="text-xs text-gray-500 font-semibold">{grade.packaging}</span>
+                  {/* Packaging & Shipping */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
+                      <Package className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                      <span className="text-xs text-gray-600">{grade.packaging}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Ship className="w-3.5 h-3.5 text-orange-500" />
-                      <span className="text-xs text-gray-500 font-semibold">{grade.container} · {grade.hsCode}</span>
+                    <div className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
+                      <Ship className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                      <span className="text-xs text-gray-600">{grade.container}</span>
                     </div>
+                    {"hsCode" in grade && (
+                      <span className="inline-block text-xs font-bold text-blue-900 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
+                        {(grade as typeof grade & { hsCode: string }).hsCode}
+                      </span>
+                    )}
                   </div>
 
-                  {/* Certifications */}
-                  <div className="space-y-1.5">
+                  {/* Certifications as chips */}
+                  <div className="flex flex-wrap gap-1.5">
                     {grade.certs.map((cert) => (
-                      <div key={cert} className="flex items-center gap-2 text-xs text-black">
-                        <BadgeCheck className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                      <span key={cert} className="inline-flex items-center gap-1 text-xs text-gray-700 bg-gray-100 hover:bg-orange-50 px-2 py-1 rounded-lg transition-colors">
+                        <BadgeCheck className="w-3 h-3 text-orange-500 shrink-0" />
                         {cert}
-                      </div>
+                      </span>
                     ))}
                   </div>
                 </div>
 
                 {/* CTA */}
-                <div className="p-5 border-t border-gray-100">
+                <div className="p-4 border-t border-gray-100 bg-gray-50/60">
                   <Button
                     size="sm"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white"
-                    onClick={() => {
-                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                    }}
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-sm"
+                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   >
                     Request a Quote
                   </Button>

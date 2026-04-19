@@ -72,7 +72,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Call Us</h4>
-                  <p className="text-gray-600">+91 (999) 802-3639</p>
+                  <p className="text-gray-600">+91 9998023639</p>
                 </div>
               </div>
 

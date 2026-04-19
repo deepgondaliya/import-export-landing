@@ -23,9 +23,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Global Export & Import
+            Global Export in
             <br />
-            <span className="text-orange-500">Solutions</span>
+            <span className="text-orange-500">Organic Food Products</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
