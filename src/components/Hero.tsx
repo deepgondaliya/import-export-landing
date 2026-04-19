@@ -17,7 +17,7 @@ export default function Hero() {
       />
 
       {/* Gradient Overlay - Matches Lovable */}
-      <div className="absolute inset-0 bg-linear-to-r from-gray-900/95 via-gray-700/80 to-red-500/60" />
+      <div className="absolute inset-0 bg-linear-to-r from-gray-900/95 via-gray-800/80 to-orange-500/60" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -25,7 +25,7 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Global Export & Import
             <br />
-            <span className="text-red-500">Solutions</span>
+            <span className="text-orange-500">Solutions</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
@@ -33,7 +33,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-red-500 hover:bg-red-600/90 text-white group">
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600/90 text-white group">
               Get a Quote Today
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>

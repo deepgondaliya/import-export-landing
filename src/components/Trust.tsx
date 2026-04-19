@@ -1,42 +1,45 @@
-// src/components/Trust.tsx
-import { Package2 } from "lucide-react";
+import { ShieldCheck, Award, Leaf, FileCheck, Globe2, Wheat } from "lucide-react";
+
+const certifications = [
+  { icon: Leaf, label: "NPOP Certified", sub: "India Organic" },
+  { icon: FileCheck, label: "APEDA Registered", sub: "Govt. of India" },
+  { icon: ShieldCheck, label: "Phytosanitary", sub: "Certified Export" },
+  { icon: Award, label: "Grade A Quality", sub: "Sortex Cleaned" },
+  { icon: Globe2, label: "Global Export", sub: "10+ Countries" },
+  { icon: Wheat, label: "Gujarat Origin", sub: "Premium Source" },
+];
 
 export default function Trust() {
-  const brands = [
-    "GlobalBrand",
-    "TradeMax",
-    "ShipFast",
-    "ExportPro",
-    "WorldLink",
-  ];
-
   return (
-    <section className="py-20 bg-gray-200/50">
+    <section className="py-16 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
-            Trusted Worldwide
+        <div className="text-center mb-10">
+          <p className="text-sm font-semibold uppercase tracking-widest text-orange-500 mb-2">
+            Our Credentials
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Trusted by Global Customers for Satisfaction and Quality assurance
+            Certified Quality You Can Trust
           </h2>
         </div>
 
-        {/* Logos Grid */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {brands.map((brand, index) => (
-            <div
-              key={index}
-              className="group flex items-center justify-center p-8 bg-white rounded-2xl border border-gray-300 hover:border-gray-700/50 hover:shadow-2xl transition-all duration-300 w-full sm:w-[calc(50%-16px)] md:w-[calc(33%-16px)] lg:w-[180px]"
-            >
-              <div className="text-center">
-                <span className="text-2xl font-bold text-gray-500/80 group-hover:text-gray-900 transition-colors">
-                  {brand}
-                </span>
+        <div className="flex flex-wrap justify-center gap-4">
+          {certifications.map((cert, index) => {
+            const Icon = cert.icon;
+            return (
+              <div
+                key={index}
+                className="group flex items-center gap-3 px-5 py-4 bg-gray-50 hover:bg-orange-50 rounded-2xl border border-gray-200 hover:border-orange-400 transition-all duration-300 w-full sm:w-auto"
+              >
+                <div className="w-10 h-10 bg-orange-100 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors duration-300 shrink-0">
+                  <Icon className="w-5 h-5 text-orange-500 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <div className="font-bold text-sm text-gray-900">{cert.label}</div>
+                  <div className="text-xs text-gray-500">{cert.sub}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

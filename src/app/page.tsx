@@ -7,7 +7,6 @@ import Process from "@/components/Process";
 import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
-import Trust from "@/components/Trust";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <Trust />
       <Services />
       <Products />
       <Process />

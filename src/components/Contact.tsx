@@ -57,8 +57,8 @@ export default function Contact() {
           <div className="space-y-10">
             <div className="space-y-6">
               <div className="flex items-start gap-5">
-                <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-7 h-7 text-red-600" />
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-7 h-7 text-orange-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Email Us</h4>
@@ -67,8 +67,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-7 h-7 text-red-600" />
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-7 h-7 text-orange-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Call Us</h4>
@@ -77,14 +77,14 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-7 h-7 text-red-600" />
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-7 h-7 text-orange-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-black text-lg">Visit Us</h4>
                   <p className="text-gray-600">
-                    123 Trade Plaza, Global City<br />
-                    New York, NY 10001
+                    Shitiratna Avenue, Shop No 3, A-Block,<br />
+                    New C G Road, Chandkheda, Gandhinagar 382424, Gujarat, India
                   </p>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-red-500 hover:bg-red-600 text-white text-lg h-14"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white text-lg h-14"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Submit Inquiry"}

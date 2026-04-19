@@ -41,14 +41,14 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group bg-white p-10 rounded-2xl border border-gray-300 hover:border-red-500 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3"
+              className="group bg-white p-10 rounded-2xl border border-gray-300 hover:border-orange-500 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-6 h-6 fill-red-500 text-red-500"
+                    className="w-6 h-6 fill-orange-500 text-orange-500"
                   />
                 ))}
               </div>

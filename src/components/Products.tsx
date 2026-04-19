@@ -101,7 +101,7 @@ export default function Products() {
                 className="object-cover"
               />
               <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/80 text-white text-xs px-3 py-2 rounded-full">
-                <MapPin className="w-3 h-3 text-red-500" />
+                <MapPin className="w-3 h-3 text-orange-500" />
                 Gujarat, India — Kutch & Ahmedabad Districts
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function Products() {
             {/* Product Info */}
             <div className="p-8 lg:p-10 flex flex-col justify-center gap-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-red-500">
+                <span className="text-xs font-bold uppercase tracking-widest text-orange-500">
                   Export Product
                 </span>
                 <h3 className="text-3xl md:text-4xl font-bold text-black mt-2 mb-3">
@@ -134,7 +134,7 @@ export default function Products() {
                     key={badge.label}
                     className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${
                       badge.highlight
-                        ? "bg-red-500 text-white border-red-500"
+                        ? "bg-orange-500 text-white border-orange-500"
                         : "bg-white text-black border-black"
                     }`}
                   >
@@ -150,7 +150,7 @@ export default function Products() {
                   { value: "26 MT", label: "Per FCL" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-bold text-red-500">{stat.value}</div>
+                    <div className="text-2xl font-bold text-orange-500">{stat.value}</div>
                     <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
                   </div>
                 ))}
@@ -166,7 +166,7 @@ export default function Products() {
             return (
               <div
                 key={grade.id}
-                className="bg-white rounded-2xl border border-black overflow-hidden flex flex-col hover:border-red-500 hover:shadow-2xl transition-all duration-300"
+                className="bg-white rounded-2xl border border-black overflow-hidden flex flex-col hover:border-orange-500 hover:shadow-2xl transition-all duration-300"
               >
                 {/* Grade Image */}
                 <div className="relative h-48">
@@ -180,12 +180,12 @@ export default function Products() {
 
                 {/* Grade Header */}
                 <div className="p-5 border-b border-gray-100 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-red-500" />
+                  <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
                     <div className="font-bold text-black">{grade.label}</div>
-                    <span className="text-xs font-semibold text-red-500 bg-red-50 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">
                       {grade.badge}
                     </span>
                   </div>
@@ -199,7 +199,7 @@ export default function Products() {
                   <div className="rounded-xl overflow-hidden border border-gray-100">
                     <table className="w-full text-xs">
                       <thead>
-                        <tr className="bg-black text-white">
+                        <tr className="bg-blue-900 text-white">
                           <th className="text-left px-3 py-2 font-semibold">Parameter</th>
                           <th className="text-left px-3 py-2 font-semibold">Value</th>
                         </tr>
@@ -218,11 +218,11 @@ export default function Products() {
                   {/* Packaging */}
                   <div className="space-y-2 pt-1">
                     <div className="flex items-center gap-2">
-                      <Package className="w-3.5 h-3.5 text-red-500" />
+                      <Package className="w-3.5 h-3.5 text-orange-500" />
                       <span className="text-xs text-gray-500 font-semibold">{grade.packaging}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Ship className="w-3.5 h-3.5 text-red-500" />
+                      <Ship className="w-3.5 h-3.5 text-orange-500" />
                       <span className="text-xs text-gray-500 font-semibold">{grade.container} · {grade.hsCode}</span>
                     </div>
                   </div>
@@ -231,7 +231,7 @@ export default function Products() {
                   <div className="space-y-1.5">
                     {grade.certs.map((cert) => (
                       <div key={cert} className="flex items-center gap-2 text-xs text-black">
-                        <BadgeCheck className="w-3.5 h-3.5 text-red-500 shrink-0" />
+                        <BadgeCheck className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                         {cert}
                       </div>
                     ))}
@@ -242,7 +242,7 @@ export default function Products() {
                 <div className="p-5 border-t border-gray-100">
                   <Button
                     size="sm"
-                    className="w-full bg-red-500 hover:bg-red-600 text-white"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white"
                     onClick={() => {
                       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                     }}

@@ -20,8 +20,8 @@ export default function Countries() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-red-200/70 rounded-full mb-6">
-            <Globe className="w-10 h-10 text-red-500" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-orange-200/70 rounded-full mb-6">
+            <Globe className="w-10 h-10 text-orange-500" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Countries We Serve
@@ -36,7 +36,7 @@ export default function Countries() {
           {countries.map((country, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-red-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 aspect-4/3"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-orange-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 aspect-4/3"
             >
               {/* Flag Image — full card background */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
